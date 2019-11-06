@@ -1,0 +1,25 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <button v-on:click="increment">Инкремент</button>
+    <p>Кликов: {{ counter }} </p>
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            counter: 0
+        },
+        mounted() {
+            if (localStorage.counter) {
+                this.counter = localStorage.counter;
+            }
+        },
+        methods: {
+            increment() {
+                localStorage.counter = ++this.counter;
+            }
+        }
+    });
+</script>
